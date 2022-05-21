@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 
 using NLog;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -37,30 +38,32 @@ namespace LygIM.Lanucher
 
 			using (var dbContextScope = _dbContextScopeFactory.Create(new AuditContext(Guid.NewGuid(), "d", "d")))
 			{
-				var entity = await _workspaceRepository.GetAsync(Guid.Parse("73fc973a-dbd7-ec11-9edd-680715f2d888"));
-				entity.Name = DateTime.Now.ToString("HH:mm:ss");
-				_workspaceRepository.Update(entity);
-
-				var workspace = new Workspace()
+				try
 				{
-					Name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-				};
-				_workspaceRepository.Add(workspace);
+					var entity = await _workspaceRepository.GetAsync(Guid.Parse("73fc973a-dbd7-ec11-9edd-680715f2d888"));
 
-				Thread.Sleep(TimeSpan.FromSeconds(1));
+					entity.Name = DateTime.Now.ToString("HH:mm:ss");
+					foreach(var configuration in entity.Configurations)
+					{
+						configuration.Value = DateTime.Now.ToString("HH:mm:ss");
+					}
 
-				_workspaceRepository.Add(new Workspace() { Name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") });
+					_workspaceRepository.Update(entity);
 
-				var cc = await _workspaceRepository.GetAsync(Guid.Parse("B6182477-42D8-EC11-9EDD-680715F2D888"));
-				if (cc != null)
-				{
-					_workspaceRepository.Remove(cc);
+					var workspace = new Workspace() { Name = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") };
+
+					_workspaceRepository.Add(workspace);
+
+					await dbContextScope.SaveChangesAsync();
 				}
-
-				await dbContextScope.SaveChangesAsync();
+				catch (InvalidOperationException ex)
+				{
+					Logger.Error(ex.Message);
+				}
 			}
+			Logger.Info("End");
+			Console.WriteLine("Press any key to exit.");
 
-			Logger.Info("Ending...");
 		}
 
 		public async Task StopAsync(CancellationToken cancellationToken)

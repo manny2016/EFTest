@@ -56,6 +56,8 @@ namespace LygIM.Buiness.Services
 		{
 			var dbContext = this.DbContexts.Get<LygIMDbContext>();
 
+			dbContext.ChangeTracker.DetectChanges();
+
 			var transation = dbContext.Database.BeginTransaction();
 
 			try
@@ -84,9 +86,8 @@ namespace LygIM.Buiness.Services
 			catch (Exception ex)
 			{
 				transation.Rollback();
+				throw ex;
 			}
-
-			throw new InvalidOperationException();
 
 		}
 
@@ -125,7 +126,7 @@ namespace LygIM.Buiness.Services
 				{
 					oldValue.Add(propertyName, stateEntry.OriginalValues[propertyName].ToString());
 				}
-
+				dbContext.Set(stateEntry.Entity.GetType()).Attach(stateEntry.Entity);
 				dbContext.Set<Audit>().Add(new Audit(auditContext, oldValue, null));
 			}
 		}
@@ -139,6 +140,18 @@ namespace LygIM.Buiness.Services
 
 				foreach (var propertyName in stateEntry.GetModifiedProperties())
 				{
+					var originalValue = stateEntry.OriginalValues[propertyName].ToString();
+					var currentValue = stateEntry.CurrentValues[propertyName].ToString();
+					if (originalValue == currentValue)
+					{
+						Logger.Info($"{stateEntry.Entity.GetType().Name}-> OriginalValue={originalValue};currentValue={currentValue}; IsEquals={originalValue == currentValue}");
+					}
+					else
+					{
+						Logger.Warn($"{stateEntry.Entity.GetType().Name}-> OriginalValue={originalValue};currentValue={currentValue}; IsEquals={originalValue == currentValue}");
+					}
+
+
 					oldValue.Add(propertyName, stateEntry.OriginalValues[propertyName].ToString());
 					newValue.Add(propertyName, stateEntry.CurrentValues[propertyName].ToString());
 				}

@@ -8,13 +8,15 @@ using System;
 using System.Runtime.Remoting.Messaging;
 using System.Threading;
 
-namespace LygIM.Lanucher {
+namespace LygIM.Lanucher
+{
 	internal class InstanceIdentifier : MarshalByRefObject { }
-	class Program {
-		static void Main(string[] args) {
-
+	class Program
+	{
+		static void Main(string[] args)
+		{
 			CreateHostBuilder(args).Build().RunAsync();
-
+			
 			Console.ReadLine();
 		}
 
@@ -26,7 +28,6 @@ namespace LygIM.Lanucher {
 			})
 			.ConfigureLogging((context, logging) =>
 			{
-
 				logging.AddFilter("System", LogLevel.Warning);
 				logging.AddFilter("Microsoft", LogLevel.Warning);
 
@@ -37,7 +38,7 @@ namespace LygIM.Lanucher {
 				services.AddTransient<IAmbientDbContextLocator, AmbientDbContextLocator>();
 				services.AddTransient<IWorkspaceRepository, WorkspaceRepository>();
 
-			}).UseMyNLog();
+			});
 
 	}
 }

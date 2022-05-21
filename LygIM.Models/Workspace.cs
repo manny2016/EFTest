@@ -12,6 +12,7 @@ namespace LygIM.Models {
 		[MaxLength(50)]
 		public string Name { get; set; }
 
+
 		public virtual ICollection<WorkspaceConfiguration> Configurations { get; set; }
 	}
 }

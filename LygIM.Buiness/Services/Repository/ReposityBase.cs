@@ -43,7 +43,7 @@ namespace LygIM.Buiness.Services.Repository {
 			return result;
 		}
 
-		public TEntity Remove(TEntity entity) {
+		public virtual TEntity Remove(TEntity entity) {
 
 			DbContext.Set<TEntity>().Remove(entity);
 
@@ -52,9 +52,11 @@ namespace LygIM.Buiness.Services.Repository {
 			return entity;
 		}
 
-		public TEntity Update(TEntity entity) {
-			
+		public virtual TEntity Update(TEntity entity) {
+						
 			DbContext.Entry(entity).State = EntityState.Modified;
+			//DbContext.Set<TEntity>().Attach(entity);
+
 			return entity;
 		}
 	}
