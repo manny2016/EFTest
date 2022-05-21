@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32413.511
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LygIM.DataAccess", "LygIM.DataAccess\LygIM.DataAccess.csproj", "{061AB11E-A1CF-4BE7-8168-697CBB85F7E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LygIM.Lanucher", "LygIM.Lanucher\LygIM.Lanucher.csproj", "{E7FB8B39-1688-41C9-ADF2-967E27D2796F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LygIM.Models", "LygIM.Models\LygIM.Models.csproj", "{9E36300A-FF13-47DD-9C13-A908D13396D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{28986ADC-B2DE-490D-BD8E-C8BAF0C8D388}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LygIM.Buiness", "LygIM.Buiness\LygIM.Buiness.csproj", "{01C4D4B8-8839-45D3-B3A4-3B1B7CE2F1FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LygIM.DataTransfer", "LygIM.DataTransfer\LygIM.DataTransfer.csproj", "{4AA29CC2-86D6-4950-9F31-1E5DC4B9D8EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{061AB11E-A1CF-4BE7-8168-697CBB85F7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061AB11E-A1CF-4BE7-8168-697CBB85F7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061AB11E-A1CF-4BE7-8168-697CBB85F7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061AB11E-A1CF-4BE7-8168-697CBB85F7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7FB8B39-1688-41C9-ADF2-967E27D2796F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7FB8B39-1688-41C9-ADF2-967E27D2796F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7FB8B39-1688-41C9-ADF2-967E27D2796F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7FB8B39-1688-41C9-ADF2-967E27D2796F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E36300A-FF13-47DD-9C13-A908D13396D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E36300A-FF13-47DD-9C13-A908D13396D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E36300A-FF13-47DD-9C13-A908D13396D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E36300A-FF13-47DD-9C13-A908D13396D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C4D4B8-8839-45D3-B3A4-3B1B7CE2F1FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C4D4B8-8839-45D3-B3A4-3B1B7CE2F1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C4D4B8-8839-45D3-B3A4-3B1B7CE2F1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C4D4B8-8839-45D3-B3A4-3B1B7CE2F1FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA29CC2-86D6-4950-9F31-1E5DC4B9D8EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA29CC2-86D6-4950-9F31-1E5DC4B9D8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA29CC2-86D6-4950-9F31-1E5DC4B9D8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA29CC2-86D6-4950-9F31-1E5DC4B9D8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{061AB11E-A1CF-4BE7-8168-697CBB85F7E1} = {28986ADC-B2DE-490D-BD8E-C8BAF0C8D388}
+		{9E36300A-FF13-47DD-9C13-A908D13396D6} = {28986ADC-B2DE-490D-BD8E-C8BAF0C8D388}
+		{01C4D4B8-8839-45D3-B3A4-3B1B7CE2F1FB} = {28986ADC-B2DE-490D-BD8E-C8BAF0C8D388}
+		{4AA29CC2-86D6-4950-9F31-1E5DC4B9D8EB} = {28986ADC-B2DE-490D-BD8E-C8BAF0C8D388}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1AF1AD6-2FA7-436D-B9CF-A5E5563B6EBF}
+	EndGlobalSection
+EndGlobal
